@@ -1,0 +1,27 @@
+{
+  "name": "vite-lit-element-ts-sass",
+  "version": "0.0.0",
+  "main": "dist/my-vite-element.es.js",
+  "exports": {
+    ".": "./dist/my-vite-element.es.js"
+  },
+  "types": "types/my-element.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "lit": "latest",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "rollup-plugin-postcss-lit": "^2.0.0",
+    "sass": "^1.49.0",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2"
+  }
+}
