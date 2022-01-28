@@ -1,0 +1,62 @@
+@import './styles/variables.scss';
+
+:host {
+  .reserve-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 300px;
+    padding: 30px;
+
+    border-radius: $border-radius;
+    background-color: $light-background;
+    text-align: center;
+
+    &__title {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 500;
+      color: $dark-color;
+    }
+
+    &__input {
+      padding: 10px 20px;
+      border: solid 1px $border-color;
+      border-radius: $border-radius;
+
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 300;
+
+      transition: border-color 0.2s;
+
+      &:hover {
+        border-color: $brand-color;
+      }
+    }
+
+    &__button {
+      padding: 13px 0;
+      border: none;
+      border-radius: $border-radius;
+      background-color: $brand-color;
+
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      color: $light-color;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      transition: background-color 0.2s, opacity 0.2s;
+
+      &:hover {
+        background-color: $brand-color-hover;
+      }
+
+      &:active {
+        opacity: 0.8;
+      }
+    }
+  }
+}
