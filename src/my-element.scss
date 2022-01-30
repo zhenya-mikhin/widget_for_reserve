@@ -2,8 +2,6 @@
 
 :host {
   .reserve-form {
-    display: flex;
-    flex-direction: column;
     gap: 20px;
     min-width: 300px;
     padding: 30px;
@@ -14,6 +12,7 @@
 
     &__title {
       margin: 0;
+      margin-bottom: 30px;
       font-size: 20px;
       font-weight: 500;
       color: $dark-color;
@@ -21,7 +20,8 @@
 
     &__input-container {
       position: relative;
-      padding: 10px 20px;
+      margin-bottom: 20px;
+      padding: 15px 20px;
       border: solid 1px $border-color;
       border-radius: $border-radius;
 
@@ -30,30 +30,23 @@
       font-weight: 300;
       text-align: left;
 
-      cursor: pointer;
       transition: border-color 0.2s;
 
       &:hover {
         border-color: $brand-color;
+
+        .reserve-form__drop {
+          transform: rotate(180deg);
+        }
+      }
+
+      &--last-child {
+        margin-bottom: 53px;
       }
     }
 
     &__input {
-      position: relative;
-      padding: 10px 20px;
-      border: solid 1px $border-color;
-      border-radius: $border-radius;
-
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 300;
-
       cursor: pointer;
-      transition: border-color 0.2s;
-
-      &:hover {
-        border-color: $brand-color;
-      }
 
       &--select {
         position: absolute;
@@ -73,22 +66,25 @@
     &__text {
       font-size: 15px;
       font-weight: 300;
-      height: 30px;
     }
 
     &__minus {
       position: absolute;
-      top: 10px;
+      top: 15px;
       right: 70px;
     }
 
-    &__plus {
+    &__plus,
+    &__drop {
       position: absolute;
-      top: 10px;
+      top: 15px;
       right: 20px;
+
+      transition: transform 0.3s;
     }
 
     &__button {
+      width: 100%;
       padding: 13px 0;
       border: none;
       border-radius: $border-radius;
