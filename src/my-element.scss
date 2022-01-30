@@ -19,7 +19,27 @@
       color: $dark-color;
     }
 
+    &__input-container {
+      position: relative;
+      padding: 10px 20px;
+      border: solid 1px $border-color;
+      border-radius: $border-radius;
+
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 300;
+      text-align: left;
+
+      cursor: pointer;
+      transition: border-color 0.2s;
+
+      &:hover {
+        border-color: $brand-color;
+      }
+    }
+
     &__input {
+      position: relative;
       padding: 10px 20px;
       border: solid 1px $border-color;
       border-radius: $border-radius;
@@ -34,6 +54,38 @@
       &:hover {
         border-color: $brand-color;
       }
+
+      &--select {
+        position: absolute;
+        top: 20px;
+        opacity: 0;
+        z-index: 1;
+        line-height: 50px;
+        padding: 12px 6px;
+        box-sizing: border-box;
+        height: 50px;
+        width: 100%;
+        margin-top: -25px;
+        margin-left: -20px;
+      }
+    }
+
+    &__text {
+      font-size: 15px;
+      font-weight: 300;
+      height: 30px;
+    }
+
+    &__minus {
+      position: absolute;
+      top: 10px;
+      right: 70px;
+    }
+
+    &__plus {
+      position: absolute;
+      top: 10px;
+      right: 20px;
     }
 
     &__button {

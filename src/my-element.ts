@@ -23,17 +23,46 @@ export class MyElement extends LitElement {
       <form class="reserve-form">
         <h2 class="reserve-form__title">Make a reservation</h2>
 
-        <select class="reserve-form__input">
-          <option>2 guests</option>
-        </select>
+        <section class="reserve-form__input-container">
+          <select class="reserve-form__input reserve-form__input--select">
+            <option value="2">2 guests</option>
+          </select>
+          <span class="reserve-form__text">2 guests</span>
+          <div class="reserve-form__minus">
+            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.6 9.4h16.8a.6.6 0 0 1 0 1.2H1.6a.6.6 0 0 1 0-1.2z" fill="#000" fill-rule="evenodd" opacity=".5"/>
+            </svg>
+          </div>
+          <div class="reserve-form__plus">
+            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="m9.412 9.419-7.863.037a.552.552 0 0 0-.55.548.538.538 0 0 0 .545.544l7.945-.038-.037 7.946a.539.539 0 0 0 .544.544.552.552 0 0 0 .548-.549l.038-7.862 7.87-.039a.55.55 0 0 0 .548-.547.541.541 0 0 0-.544-.544l-7.952.038.037-7.953A.541.541 0 0 0 9.997 1a.55.55 0 0 0-.547.548l-.038 7.871z" fill="#000" fill-rule="evenodd" opacity=".5"/>
+            </svg>
+          </div>
+        </section>
 
-        <input class="reserve-form__input"
-               type="date" min="${this._getToday()}"
-               value="${this._getToday()}">
+        <section class="reserve-form__input-container">
+          <input class="reserve-form__input reserve-form__input--select"
+                 type="date" min="${this._getToday()}"
+                 value="${this._getToday()}">
+          <span class="reserve-form__text">${this._getToday()}</span>
+          <div class="reserve-form__plus">
+            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="m14.297 7.5-4.304 4.13-.459-.44-3.82-3.667L5 8.207 9.993 13 15 8.195l-.703-.695z" fill="#000" fill-rule="evenodd" opacity=".5"/>
+            </svg>
+          </div>
+        </section>
 
-        <select class="reserve-form__input">
-          <option>08:00 PM</option>
-        </select>
+        <section class="reserve-form__input-container">
+          <select class="reserve-form__input reserve-form__input--select">
+            <option>08:00 PM</option>
+          </select>
+          <span class="reserve-form__text">${this._getToday()}</span>
+          <div class="reserve-form__plus">
+            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="m14.297 7.5-4.304 4.13-.459-.44-3.82-3.667L5 8.207 9.993 13 15 8.195l-.703-.695z" fill="#000" fill-rule="evenodd" opacity=".5"/>
+            </svg>
+          </div>
+        </section>
 
         <button class="reserve-form__button">
           Reserve now
