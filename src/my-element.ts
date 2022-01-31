@@ -10,6 +10,9 @@ export class MyElement extends LitElement {
   static styles = styles
 
   @property()
+  date = ''
+
+  @property()
   dt = DateTime.now()
   dtFormat = this.dt.setLocale("en").toFormat("MMM dd, yyyy")
 
@@ -38,11 +41,18 @@ export class MyElement extends LitElement {
       case 'plus':
         return this.guests++
     }
+    
+    return
   }
 
   private _changeSelect(evt: any) {
     const value = evt.currentTarget.value
-    return this.guests = value
+    this.guests = value
+  }
+
+  private _changeDate(evt: any) {
+    let value = evt.currentTarget.value
+    this.date = DateTime.fromISO(value).toFormat("MMM dd, yyyy")
   }
 
   render() {
@@ -72,8 +82,9 @@ export class MyElement extends LitElement {
         <section class="reserve-form__input-container">
           <input class="reserve-form__input reserve-form__input--select"
                  type="date" min="${this._getToday()}"
-                 value="${this._getToday()}">
-          <span class="reserve-form__text">${this.dtFormat}</span>
+                 value="${this._getToday()}"
+                 @change="${this._changeDate}">
+          <span class="reserve-form__text">${this.date || this.dtFormat}</span>
           <div class="reserve-form__drop">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="m14.297 7.5-4.304 4.13-.459-.44-3.82-3.667L5 8.207 9.993 13 15 8.195l-.703-.695z" fill="#000" fill-rule="evenodd" opacity=".5"/>

@@ -76,12 +76,15 @@
       cursor: pointer;
     }
 
+    &__plus {
+      z-index: 2;
+    }
+
     &__plus,
     &__drop {
       position: absolute;
       top: 15px;
       right: 20px;
-      z-index: 2;
       cursor: pointer;
 
       transition: transform 0.3s;
