@@ -72,6 +72,8 @@
       position: absolute;
       top: 15px;
       right: 70px;
+      z-index: 2;
+      cursor: pointer;
     }
 
     &__plus,
@@ -79,6 +81,8 @@
       position: absolute;
       top: 15px;
       right: 20px;
+      z-index: 2;
+      cursor: pointer;
 
       transition: transform 0.3s;
     }
