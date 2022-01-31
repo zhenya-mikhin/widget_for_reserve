@@ -1,4 +1,4 @@
-import { html, LitElement } from 'lit'
+import { html, LitElement, unsafeCSS } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { DateTime } from 'luxon'
 
@@ -7,7 +7,7 @@ import styles from './my-element.scss'
 
 @customElement('my-element')
 export class MyElement extends LitElement {
-  static styles = styles
+  static styles = unsafeCSS(styles)
 
   @property()
   date = ''
@@ -22,11 +22,7 @@ export class MyElement extends LitElement {
   guestsArray = Array.from(Array(100).keys())
 
   private _getToday() {
-    const year = this.dt.year
-    const month = `${this.dt.month}`.length === 1 ? '0' + this.dt.month : this.dt.month
-    const day = this.dt.day
-
-    return `${year}-${month}-${day}`
+    return this.dt.toLocaleString().split('.').reverse().join('-')
   }
 
   private _selectGuests(evt: any) {
@@ -41,7 +37,7 @@ export class MyElement extends LitElement {
       case 'plus':
         return this.guests++
     }
-    
+
     return
   }
 
