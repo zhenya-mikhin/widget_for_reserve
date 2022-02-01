@@ -6,14 +6,16 @@ export declare class MyElement extends LitElement {
     time: string;
     dt: DateTime;
     dtFormat: string;
-    dateArray: string[];
-    date: string;
+    timeArray: never[];
+    date: DateTime;
+    initialTimeArray: DateTime[];
     guests: number;
     minAndMaxGuests: {
         MIN: number;
         MAX: number;
     };
     guestsArray: number[];
+    private _getTimeArray;
     private _getToday;
     private _selectGuests;
     private _changeSelect;

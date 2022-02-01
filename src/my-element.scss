@@ -7,7 +7,7 @@
     padding: 30px;
 
     border-radius: $border-radius;
-    background-color: $light-background;
+    background-color: var(#{--components-background-default});
     text-align: center;
 
     &__title {
@@ -15,33 +15,33 @@
       margin-bottom: 30px;
       font-size: 20px;
       font-weight: 500;
-      color: $dark-color;
+      color: var(#{--text-color-default});
     }
 
     &__input-container {
       position: relative;
+      width: 258px;
       margin-bottom: 20px;
       padding: 15px 20px;
       border: solid 1px $border-color;
       border-radius: $border-radius;
+      background-color: var(#{--components-background-default});
 
       font-family: inherit;
       font-size: 15px;
       font-weight: 300;
       text-align: left;
+      color: var(#{--text-color-default});
 
       transition: border-color 0.2s;
+      cursor: pointer;
 
       &:hover {
         border-color: $brand-color;
-
-        .reserve-form__drop {
-          transform: rotate(180deg);
-        }
       }
 
       &--last-child {
-        margin-bottom: 53px;
+        margin-bottom: 50px;
       }
     }
 
@@ -66,6 +66,7 @@
     &__text {
       font-size: 15px;
       font-weight: 300;
+      color: var(#{--text-color-default});
     }
 
     &__minus {
@@ -94,8 +95,6 @@
       top: 15px;
       right: 20px;
       cursor: pointer;
-
-      transition: transform 0.3s;
     }
 
     &__button {

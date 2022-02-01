@@ -15,17 +15,32 @@ export class MyElement extends LitElement {
   @property()
   dt = DateTime.now()
   dtFormat = this.dt.setLocale("en").toFormat("MMM dd, yyyy")
-  dateArray = ['00:00', '00:30', '01:00', '01:30', '02:00', '02:30', '03:00', '03:30', '04:00', '04:30', '05:00', '05:30', '06:00', '06:30', '07:00', '07:30', '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'].filter(el => el >= this.dt.toLocaleString(DateTime.TIME_24_SIMPLE))
+  timeArray = []
 
   @property()
   date = this.dt
+
+  @property()
+  initialTimeArray = Array.from(Array(28)).map(el => el = this.dt.set({ year: this.date.year, month: this.date.month, day: this.date.day, hour: 9, minute: 0 }))
 
   @property()
   guests = 2
   minAndMaxGuests = {MIN: 1, MAX: 100}
   guestsArray = Array.from(Array(100).keys())
 
+  private _getTimeArray() {
+    let duration = 30
+
+    this.timeArray = this.initialTimeArray.map(el => {
+      duration += 30
+      return el.plus({ minute: duration }).toFormat('HH:mm a')
+    })
+
+    console.log(this.initialTimeArray.map(el => el.toString()), this.date)
+  }
+
   private _getToday() {
+    this._getTimeArray()
     return this.dt.toLocaleString().split('.').reverse().join('-')
   }
 
@@ -51,7 +66,7 @@ export class MyElement extends LitElement {
   }
 
   private _changeDate(evt: any) {
-    this.date = evt.currentTarget.value
+    this.date = DateTime.fromISO(evt.currentTarget.value)
   }
 
   private _changeTime(evt: any) {
@@ -60,30 +75,27 @@ export class MyElement extends LitElement {
   }
 
   private _getSoon(time: string) {
-    return time > this.dateArray[0] ? this.dateArray[1] : this.dateArray[0]
+    return time > this.timeArray[0] ? this.timeArray[1] : this.timeArray[0]
   }
 
   private _fetchData(e: Event) {
     e.preventDefault()
 
-    const link = 'https://hostme-webguest-qa.azurewebsites.net/reserve/3097/?'
-    const paramsLink = new URLSearchParams(link)
+    let link = 'https://hostme-webguest-qa.azurewebsites.net/reserve/3097/?'
 
     const data = {
       person: this.guests,
       date: DateTime.fromISO(this.date).toFormat('LL/dd/y'),
-      time: this.time,
+      time: this.time.slice(0, 5) + ':00',
       dateFormat: 'MM/DD/YYYY',
       lang: 'en'
     }
 
     for (let key in data) {
-      paramsLink.append(key, data[key])
+      link = link + `${key}=${data[key]}&`
     }
 
-    console.log(paramsLink.toString())
-
-    // window.location.href = paramsLink.toString()
+    window.location.href = link
   }
 
   render() {
@@ -92,7 +104,9 @@ export class MyElement extends LitElement {
         <h2 class="reserve-form__title">Make a reservation</h2>
 
         <section class="reserve-form__input-container">
-          <select @change="${this._changeSelect}" class="reserve-form__input reserve-form__input--select">
+          <select @change="${this._changeSelect}"
+                  class="reserve-form__input reserve-form__input--select"
+                  required>
             ${
               this.guestsArray.map(i => html`<option value="${i+1}">${i+1} guests</option>`)
             }
@@ -110,23 +124,20 @@ export class MyElement extends LitElement {
           </div>
         </section>
 
-        <section class="reserve-form__input-container">
-          <input class="reserve-form__input reserve-form__input--select"
+        <input class="reserve-form__input-container"
                  type="date" min="${this._getToday()}"
                  value="${this._getToday()}"
-                 @change="${this._changeDate}">
-          <span class="reserve-form__text">${DateTime.fromISO(this.date).toFormat("MMM dd, yyyy") || this.dtFormat}</span>
-          <div class="reserve-form__drop">
-            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="m14.297 7.5-4.304 4.13-.459-.44-3.82-3.667L5 8.207 9.993 13 15 8.195l-.703-.695z" fill="#000" fill-rule="evenodd" opacity=".5"/>
-            </svg>
-          </div>
-        </section>
+                 @change="${this._changeDate}"
+                 required>
 
         <section class="reserve-form__input-container reserve-form__input-container--last-child">
-          <select @change="${this._changeTime}" class="reserve-form__input reserve-form__input--select">
+          <select @change="${this._changeTime}"
+                  class="reserve-form__input reserve-form__input--select"
+                  required>
             ${
-              this.dateArray.map(i => html`<option value="${i}">${i}</option>`)
+              this.timeArray
+                    .filter(el => el >= this.dt.toLocaleString(DateTime.TIME_24_SIMPLE))
+                    .map(i => html`<option value="${i}">${i}</option>`)
             }
           </select>
           <span class="reserve-form__text">${this.time || this._getSoon(this.dt.toLocaleString(DateTime.TIME_SIMPLE))}</span>
