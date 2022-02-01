@@ -74,10 +74,18 @@
       right: 70px;
       z-index: 2;
       cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
     }
 
     &__plus {
       z-index: 2;
+
+      &:hover {
+        opacity: 0.7;
+      }
     }
 
     &__plus,
