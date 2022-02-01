@@ -10,15 +10,15 @@ export class MyElement extends LitElement {
   static styles = unsafeCSS(styles)
 
   @property()
-  date = ''
-
-  @property()
   time = ''
 
   @property()
   dt = DateTime.now()
   dtFormat = this.dt.setLocale("en").toFormat("MMM dd, yyyy")
   dateArray = ['00:00', '00:30', '01:00', '01:30', '02:00', '02:30', '03:00', '03:30', '04:00', '04:30', '05:00', '05:30', '06:00', '06:30', '07:00', '07:30', '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'].filter(el => el >= this.dt.toLocaleString(DateTime.TIME_24_SIMPLE))
+
+  @property()
+  date = this.dt
 
   @property()
   guests = 2
@@ -51,8 +51,7 @@ export class MyElement extends LitElement {
   }
 
   private _changeDate(evt: any) {
-    let value = evt.currentTarget.value
-    this.date = DateTime.fromISO(value).toFormat("MMM dd, yyyy")
+    this.date = evt.currentTarget.value
   }
 
   private _changeTime(evt: any) {
@@ -62,6 +61,29 @@ export class MyElement extends LitElement {
 
   private _getSoon(time: string) {
     return time > this.dateArray[0] ? this.dateArray[1] : this.dateArray[0]
+  }
+
+  private _fetchData(e: Event) {
+    e.preventDefault()
+
+    const link = 'https://hostme-webguest-qa.azurewebsites.net/reserve/3097/?'
+    const paramsLink = new URLSearchParams(link)
+
+    const data = {
+      person: this.guests,
+      date: DateTime.fromISO(this.date).toFormat('LL/dd/y'),
+      time: this.time,
+      dateFormat: 'MM/DD/YYYY',
+      lang: 'en'
+    }
+
+    for (let key in data) {
+      paramsLink.append(key, data[key])
+    }
+
+    console.log(paramsLink.toString())
+
+    // window.location.href = paramsLink.toString()
   }
 
   render() {
@@ -93,7 +115,7 @@ export class MyElement extends LitElement {
                  type="date" min="${this._getToday()}"
                  value="${this._getToday()}"
                  @change="${this._changeDate}">
-          <span class="reserve-form__text">${this.date || this.dtFormat}</span>
+          <span class="reserve-form__text">${DateTime.fromISO(this.date).toFormat("MMM dd, yyyy") || this.dtFormat}</span>
           <div class="reserve-form__drop">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="m14.297 7.5-4.304 4.13-.459-.44-3.82-3.667L5 8.207 9.993 13 15 8.195l-.703-.695z" fill="#000" fill-rule="evenodd" opacity=".5"/>
@@ -115,7 +137,7 @@ export class MyElement extends LitElement {
           </div>
         </section>
 
-        <button class="reserve-form__button">
+        <button @click="${this._fetchData}" class="reserve-form__button">
           Reserve now
         </button>
       </form>

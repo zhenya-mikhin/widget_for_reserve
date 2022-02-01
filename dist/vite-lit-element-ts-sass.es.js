@@ -4399,7 +4399,7 @@ function friendlyDateTime(dateTimeish) {
   }
 }
 var index = r$1``;
-var styles = ":root {\n  --body-background-dark: #0d1117;\n  --body-background-light: #fff;\n  --body-background-default: var(--body-background-light);\n  --components-background-dark: #4f4f4f;\n  --components-background-light: #fff;\n  --components-background-default: var(--components-background-light);\n  --components-box-shadow-dark: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);\n  --card-background-dark: #2e3035;\n  --card-background-light: rgba(71, 147, 255, 0.2);\n  --card-background-default: var(--card-background-light);\n  --card-box-shadow-dark: 0px 3px 20px rgba(5, 5, 5, 0.28);\n  --card-box-shadow-light: 0px 3px 20px rgba(147, 144, 144, 0.28);\n  --card-box-shadow-default: var(--card-box-shadow-light);\n  --text-color-dark: #44413e;\n  --text-color-light: #fff;\n  --text-color-default: var(--text-color-light);\n}\n\n:host .reserve-form {\n  gap: 20px;\n  min-width: 300px;\n  padding: 30px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  text-align: center;\n}\n\n:host .reserve-form__title {\n  margin: 0;\n  margin-bottom: 30px;\n  font-size: 20px;\n  font-weight: 500;\n  color: #44413e;\n}\n\n:host .reserve-form__input-container {\n  position: relative;\n  margin-bottom: 20px;\n  padding: 15px 20px;\n  border: solid 1px #ddd;\n  border-radius: 4px;\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 300;\n  text-align: left;\n  transition: border-color 0.2s;\n}\n\n:host .reserve-form__input-container:hover {\n  border-color: #e16640;\n}\n\n:host .reserve-form__input-container:hover .reserve-form__drop {\n  transform: rotate(180deg);\n}\n\n:host .reserve-form__input-container--last-child {\n  margin-bottom: 53px;\n}\n\n:host .reserve-form__input {\n  cursor: pointer;\n}\n\n:host .reserve-form__input--select {\n  position: absolute;\n  top: 20px;\n  opacity: 0;\n  z-index: 1;\n  line-height: 50px;\n  padding: 12px 6px;\n  box-sizing: border-box;\n  height: 50px;\n  width: 100%;\n  margin-top: -25px;\n  margin-left: -20px;\n}\n\n:host .reserve-form__text {\n  font-size: 15px;\n  font-weight: 300;\n}\n\n:host .reserve-form__minus {\n  position: absolute;\n  top: 15px;\n  right: 70px;\n  z-index: 2;\n  cursor: pointer;\n}\n\n:host .reserve-form__plus {\n  z-index: 2;\n}\n\n:host .reserve-form__plus, :host .reserve-form__drop {\n  position: absolute;\n  top: 15px;\n  right: 20px;\n  cursor: pointer;\n  transition: transform 0.3s;\n}\n\n:host .reserve-form__button {\n  width: 100%;\n  padding: 13px 0;\n  border: none;\n  border-radius: 4px;\n  background-color: #e16640;\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 500;\n  color: #fff;\n  text-transform: uppercase;\n  cursor: pointer;\n  transition: background-color 0.2s, opacity 0.2s;\n}\n\n:host .reserve-form__button:hover {\n  background-color: #d0613e;\n}\n\n:host .reserve-form__button:active {\n  opacity: 0.8;\n}";
+var styles = ":root {\n  --body-background-dark: #0d1117;\n  --body-background-light: #fff;\n  --body-background-default: var(--body-background-light);\n  --components-background-dark: #4f4f4f;\n  --components-background-light: #fff;\n  --components-background-default: var(--components-background-light);\n  --components-box-shadow-dark: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);\n  --card-background-dark: #2e3035;\n  --card-background-light: rgba(71, 147, 255, 0.2);\n  --card-background-default: var(--card-background-light);\n  --card-box-shadow-dark: 0px 3px 20px rgba(5, 5, 5, 0.28);\n  --card-box-shadow-light: 0px 3px 20px rgba(147, 144, 144, 0.28);\n  --card-box-shadow-default: var(--card-box-shadow-light);\n  --text-color-dark: #44413e;\n  --text-color-light: #fff;\n  --text-color-default: var(--text-color-light);\n}\n\n:host .reserve-form {\n  gap: 20px;\n  min-width: 300px;\n  padding: 30px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  text-align: center;\n}\n\n:host .reserve-form__title {\n  margin: 0;\n  margin-bottom: 30px;\n  font-size: 20px;\n  font-weight: 500;\n  color: #44413e;\n}\n\n:host .reserve-form__input-container {\n  position: relative;\n  margin-bottom: 20px;\n  padding: 15px 20px;\n  border: solid 1px #ddd;\n  border-radius: 4px;\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 300;\n  text-align: left;\n  transition: border-color 0.2s;\n}\n\n:host .reserve-form__input-container:hover {\n  border-color: #e16640;\n}\n\n:host .reserve-form__input-container:hover .reserve-form__drop {\n  transform: rotate(180deg);\n}\n\n:host .reserve-form__input-container--last-child {\n  margin-bottom: 53px;\n}\n\n:host .reserve-form__input {\n  cursor: pointer;\n}\n\n:host .reserve-form__input--select {\n  position: absolute;\n  top: 20px;\n  opacity: 0;\n  z-index: 1;\n  line-height: 50px;\n  padding: 12px 6px;\n  box-sizing: border-box;\n  height: 50px;\n  width: 100%;\n  margin-top: -25px;\n  margin-left: -20px;\n}\n\n:host .reserve-form__text {\n  font-size: 15px;\n  font-weight: 300;\n}\n\n:host .reserve-form__minus {\n  position: absolute;\n  top: 15px;\n  right: 70px;\n  z-index: 2;\n  cursor: pointer;\n}\n\n:host .reserve-form__minus:hover {\n  opacity: 0.7;\n}\n\n:host .reserve-form__plus {\n  z-index: 2;\n}\n\n:host .reserve-form__plus:hover {\n  opacity: 0.7;\n}\n\n:host .reserve-form__plus, :host .reserve-form__drop {\n  position: absolute;\n  top: 15px;\n  right: 20px;\n  cursor: pointer;\n  transition: transform 0.3s;\n}\n\n:host .reserve-form__button {\n  width: 100%;\n  padding: 13px 0;\n  border: none;\n  border-radius: 4px;\n  background-color: #e16640;\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 500;\n  color: #fff;\n  text-transform: uppercase;\n  cursor: pointer;\n  transition: background-color 0.2s, opacity 0.2s;\n}\n\n:host .reserve-form__button:hover {\n  background-color: #d0613e;\n}\n\n:host .reserve-form__button:active {\n  opacity: 0.8;\n}";
 var __defProp2 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __decorateClass = (decorators, target, key, kind) => {
@@ -4414,9 +4414,11 @@ var __decorateClass = (decorators, target, key, kind) => {
 let MyElement = class extends h {
   constructor() {
     super(...arguments);
-    this.date = "";
+    this.time = "";
     this.dt = DateTime.now();
     this.dtFormat = this.dt.setLocale("en").toFormat("MMM dd, yyyy");
+    this.dateArray = ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30"].filter((el) => el >= this.dt.toLocaleString(DateTime.TIME_24_SIMPLE));
+    this.date = this.dtFormat;
     this.guests = 2;
     this.minAndMaxGuests = { MIN: 1, MAX: 100 };
     this.guestsArray = Array.from(Array(100).keys());
@@ -4445,6 +4447,24 @@ let MyElement = class extends h {
   _changeDate(evt) {
     let value = evt.currentTarget.value;
     this.date = DateTime.fromISO(value).toFormat("MMM dd, yyyy");
+  }
+  _changeTime(evt) {
+    const value = evt.currentTarget.value;
+    this.time = value;
+  }
+  _getSoon(time) {
+    return time > this.dateArray[0] ? this.dateArray[1] : this.dateArray[0];
+  }
+  _fetchData(e2) {
+    e2.preventDefault();
+    const data = {
+      person: this.guests,
+      date: this.date,
+      time: this.time,
+      dateFormat: "MM/DD/YYYY",
+      lang: "en"
+    };
+    console.log(data);
   }
   render() {
     return T`
@@ -4482,10 +4502,10 @@ let MyElement = class extends h {
         </section>
 
         <section class="reserve-form__input-container reserve-form__input-container--last-child">
-          <select class="reserve-form__input reserve-form__input--select">
-            <option>${this.dt.setLocale("en").toLocaleString(DateTime.TIME_SIMPLE)}</option>
+          <select @change="${this._changeTime}" class="reserve-form__input reserve-form__input--select">
+            ${this.dateArray.map((i2) => T`<option value="${i2}">${i2}</option>`)}
           </select>
-          <span class="reserve-form__text">${this.dt.setLocale("en").toLocaleString(DateTime.TIME_SIMPLE)}</span>
+          <span class="reserve-form__text">${this.time || this._getSoon(this.dt.toLocaleString(DateTime.TIME_SIMPLE))}</span>
           <div class="reserve-form__drop">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="m14.297 7.5-4.304 4.13-.459-.44-3.82-3.667L5 8.207 9.993 13 15 8.195l-.703-.695z" fill="#000" fill-rule="evenodd" opacity=".5"/>
@@ -4493,7 +4513,7 @@ let MyElement = class extends h {
           </div>
         </section>
 
-        <button class="reserve-form__button">
+        <button @click="${this._fetchData}" class="reserve-form__button">
           Reserve now
         </button>
       </form>
@@ -4503,10 +4523,13 @@ let MyElement = class extends h {
 MyElement.styles = s$3(styles);
 __decorateClass([
   e()
-], MyElement.prototype, "date", 2);
+], MyElement.prototype, "time", 2);
 __decorateClass([
   e()
 ], MyElement.prototype, "dt", 2);
+__decorateClass([
+  e()
+], MyElement.prototype, "date", 2);
 __decorateClass([
   e()
 ], MyElement.prototype, "guests", 2);
