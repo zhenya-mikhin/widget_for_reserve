@@ -6,9 +6,8 @@ export declare class MyElement extends LitElement {
     time: string;
     dt: DateTime;
     dtFormat: string;
-    timeArray: never[];
+    timeArray: string[];
     date: DateTime;
-    initialTimeArray: DateTime[];
     guests: number;
     minAndMaxGuests: {
         MIN: number;

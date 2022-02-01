@@ -74,6 +74,8 @@
       top: 15px;
       right: 70px;
       z-index: 2;
+      border: none;
+      background-color: var(#{--components-background-default});
       cursor: pointer;
 
       &:hover {
@@ -83,6 +85,8 @@
 
     &__plus {
       z-index: 2;
+      border: none;
+      background-color: var(#{--components-background-default});
 
       &:hover {
         opacity: 0.7;

@@ -15,13 +15,12 @@ export class MyElement extends LitElement {
   @property()
   dt = DateTime.now()
   dtFormat = this.dt.setLocale("en").toFormat("MMM dd, yyyy")
-  timeArray = []
+
+  @property()
+  timeArray = [] as string[];
 
   @property()
   date = this.dt
-
-  @property()
-  initialTimeArray = Array.from(Array(28)).map(el => el = this.dt.set({ year: this.date.year, month: this.date.month, day: this.date.day, hour: 9, minute: 0 }))
 
   @property()
   guests = 2
@@ -30,13 +29,12 @@ export class MyElement extends LitElement {
 
   private _getTimeArray() {
     let duration = 30
+    const initialTimeArray = new Array(28).fill(this.dt.set({ year: this.date.year, month: this.date.month, day: this.date.day, hour: 9, minute: 0 }));
 
-    this.timeArray = this.initialTimeArray.map(el => {
+    this.timeArray = initialTimeArray.map(el => {
       duration += 30
       return el.plus({ minute: duration }).toFormat('HH:mm a')
     })
-
-    console.log(this.initialTimeArray.map(el => el.toString()), this.date)
   }
 
   private _getToday() {
@@ -45,10 +43,12 @@ export class MyElement extends LitElement {
   }
 
   private _selectGuests(evt: any) {
+    evt.preventDefault()
+
     const action = evt.currentTarget.dataset.action
 
-    if (this.guests < this.minAndMaxGuests.MIN) throw new Error('Minimum number of guests 1')
-    if (this.guests > this.minAndMaxGuests.MAX) throw new Error('Maximum number of guests 100')
+    if (this.guests < this.minAndMaxGuests.MIN) return
+    if (this.guests > this.minAndMaxGuests.MAX) return
     
     switch (action) {
       case 'minus':
@@ -67,6 +67,7 @@ export class MyElement extends LitElement {
 
   private _changeDate(evt: any) {
     this.date = DateTime.fromISO(evt.currentTarget.value)
+    this._getTimeArray()
   }
 
   private _changeTime(evt: any) {
@@ -85,11 +86,11 @@ export class MyElement extends LitElement {
 
     const data = {
       person: this.guests,
-      date: DateTime.fromISO(this.date).toFormat('LL/dd/y'),
+      date: DateTime.fromISO(this.date.toISO()).toFormat('LL/dd/y'),
       time: this.time.slice(0, 5) + ':00',
       dateFormat: 'MM/DD/YYYY',
       lang: 'en'
-    }
+    } as any;
 
     for (let key in data) {
       link = link + `${key}=${data[key]}&`
@@ -112,16 +113,16 @@ export class MyElement extends LitElement {
             }
           </select>
           <span class="reserve-form__text">${this.guests} guests</span>
-          <div class="reserve-form__minus" @click="${this._selectGuests}" data-action="minus">
+          <button class="reserve-form__minus" @click="${this._selectGuests}" data-action="minus">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M1.6 9.4h16.8a.6.6 0 0 1 0 1.2H1.6a.6.6 0 0 1 0-1.2z" fill="#000" fill-rule="evenodd" opacity=".5"/>
             </svg>
-          </div>
-          <div class="reserve-form__plus" @click="${this._selectGuests}" data-action="plus">
+          </button>
+          <button class="reserve-form__plus" @click="${this._selectGuests}" data-action="plus">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="m9.412 9.419-7.863.037a.552.552 0 0 0-.55.548.538.538 0 0 0 .545.544l7.945-.038-.037 7.946a.539.539 0 0 0 .544.544.552.552 0 0 0 .548-.549l.038-7.862 7.87-.039a.55.55 0 0 0 .548-.547.541.541 0 0 0-.544-.544l-7.952.038.037-7.953A.541.541 0 0 0 9.997 1a.55.55 0 0 0-.547.548l-.038 7.871z" fill="#000" fill-rule="evenodd" opacity=".5"/>
             </svg>
-          </div>
+          </button>
         </section>
 
         <input class="reserve-form__input-container"
