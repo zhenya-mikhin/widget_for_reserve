@@ -63,7 +63,7 @@ var qi=Object.defineProperty,Yi=Object.defineProperties;var Gi=Object.getOwnProp
 
 :host .reserve-form__input-container {
   position: relative;
-  width: 258px;
+  width: calc(100% - 48px);
   margin-bottom: 20px;
   padding: 15px 20px;
   border: solid 1px #ddd;
