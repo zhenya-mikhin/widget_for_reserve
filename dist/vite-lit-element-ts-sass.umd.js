@@ -33,7 +33,8 @@ var qi=Object.defineProperty,Yi=Object.defineProperties;var Gi=Object.getOwnProp
 }
 
 :host .reserve-form {
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
   min-width: 300px;
   padding: 30px;
   border-radius: 4px;
@@ -63,7 +64,7 @@ var qi=Object.defineProperty,Yi=Object.defineProperties;var Gi=Object.getOwnProp
 
 :host .reserve-form__input-container {
   position: relative;
-  width: calc(100% - 48px);
+  width: calc(100% - 42px);
   margin-bottom: 20px;
   padding: 15px 20px;
   border: solid 1px #ddd;
@@ -194,7 +195,7 @@ var qi=Object.defineProperty,Yi=Object.defineProperties;var Gi=Object.getOwnProp
 
 :host .reserve-form__button:active {
   opacity: 0.8;
-}`,Ui=Object.defineProperty,zi=Object.getOwnPropertyDescriptor,fe=(n,e,t,r)=>{for(var s=r>1?void 0:r?zi(e,t):e,i=n.length-1,o;i>=0;i--)(o=n[i])&&(s=(r?o(e,t,s):o(s))||s);return r&&s&&Ui(e,t,s),s};v.MyElement=class extends ve{constructor(){super(...arguments);this.time="",this.dt=m.now(),this.dtFormat=this.dt.setLocale("en").toFormat("MMM dd, yyyy"),this.timeArray=[],this.date=this.dt,this.guests=2,this.minAndMaxGuests={MIN:1,MAX:100},this.guestsArray=Array.from(Array(100).keys())}_getTimeArray(){let n=30;const e=new Array(28).fill(this.dt.set({year:this.date.year,month:this.date.month,day:this.date.day,hour:9,minute:0}));this.timeArray=e.map(t=>(n+=30,t.plus({minute:n}).toFormat("HH:mm a")))}_getToday(){return this._getTimeArray(),this.dt.toLocaleString().split(".").reverse().join("-")}_selectGuests(n){n.preventDefault();const e=n.currentTarget.dataset.action;if(!(this.guests<=this.minAndMaxGuests.MIN)&&!(this.guests>=this.minAndMaxGuests.MAX))switch(e){case"minus":return this.guests--;case"plus":return this.guests++}}_changeSelect(n){const e=n.currentTarget.value;this.guests=e}_changeDate(n){this.date=m.fromISO(n.currentTarget.value),this._getTimeArray()}_changeTime(n){const e=n.currentTarget.value;this.time=e}_getSoon(n){return n>this.timeArray[0]?this.timeArray[1]:this.timeArray[0]}_fetchData(n){n.preventDefault();let e="https://hostme-webguest-qa.azurewebsites.net/reserve/3097/?";const t={person:this.guests,date:m.fromISO(this.date.toISO()).toFormat("LL/dd/y"),time:this.time.slice(0,5)+":00",dateFormat:"MM/DD/YYYY",lang:"en"};for(let r in t)e=e+`${r}=${t[r]}&`;window.location.href=e}render(){return Je`
+}`,Ui=Object.defineProperty,zi=Object.getOwnPropertyDescriptor,fe=(n,e,t,r)=>{for(var s=r>1?void 0:r?zi(e,t):e,i=n.length-1,o;i>=0;i--)(o=n[i])&&(s=(r?o(e,t,s):o(s))||s);return r&&s&&Ui(e,t,s),s};v.MyElement=class extends ve{constructor(){super(...arguments);this.dt=m.now(),this.dtFormat=this.dt.setLocale("en").toFormat("MMM dd, yyyy"),this.time="",this.timeArray=[],this.date=this.dt,this.guests=2,this.minAndMaxGuests={MIN:1,MAX:100},this.guestsArray=Array.from(Array(100).keys())}_getTimeArray(){let n=30;const e=new Array(28).fill(this.dt.set({year:this.date.year,month:this.date.month,day:this.date.day,hour:9,minute:0}));this.timeArray=e.map(t=>(n+=30,t.plus({minute:n}).toFormat("HH:mm"))),this.date.day==this.dt.day&&this.date.month==this.dt.month&&(this.timeArray=this.timeArray.filter(t=>t>=this.dt.toLocaleString(m.TIME_SIMPLE)))}_getToday(){return this._getTimeArray(),this.dt.toLocaleString().split(".").reverse().join("-")}_selectGuests(n){n.preventDefault();const e=n.currentTarget.dataset.action;if(!(this.guests<=this.minAndMaxGuests.MIN)&&!(this.guests>=this.minAndMaxGuests.MAX))switch(e){case"minus":return this.guests--;case"plus":return this.guests++}}_changeSelect(n){const e=n.currentTarget.value;this.guests=e}_changeDate(n){this.date=m.fromISO(n.currentTarget.value),this._getTimeArray()}_changeTime(n){const e=n.currentTarget.value;this.time=e,this._getToday()}_getSoon(n){return n>this.timeArray[0]?this.timeArray[1]:this.timeArray[0]}_fetchData(n){n.preventDefault();let e="https://hostme-webguest-qa.azurewebsites.net/reserve/3097/?";const t={person:this.guests,date:m.fromISO(this.date.toISO()).toFormat("LL/dd/y"),time:this.time.slice(0,5)+":00",dateFormat:"MM/DD/YYYY",lang:"en"};for(let r in t)e=e+`${r}=${t[r]}&`;window.location.href=e}render(){return Je`
       <form class="reserve-form">
         <h2 class="reserve-form__title">Make a reservation</h2>
 
@@ -227,7 +228,7 @@ var qi=Object.defineProperty,Yi=Object.defineProperties;var Gi=Object.getOwnProp
           <select @change="${this._changeTime}"
                   class="reserve-form__input reserve-form__input--select"
                   required>
-            ${this.timeArray.filter(n=>n>=this.dt.toLocaleString(m.TIME_24_SIMPLE)).map(n=>Je`<option value="${n}">${n}</option>`)}
+            ${this.timeArray.map(n=>Je`<option value="${n}">${n}</option>`)}
           </select>
           <span class="reserve-form__text">${this.time||this._getSoon(this.dt.toLocaleString(m.TIME_SIMPLE))}</span>
           <div class="reserve-form__drop">
@@ -241,4 +242,4 @@ var qi=Object.defineProperty,Yi=Object.defineProperties;var Gi=Object.getOwnProp
           Reserve now
         </button>
       </form>
-    `}},v.MyElement.styles=Pt(Li),fe([we()],v.MyElement.prototype,"time",2),fe([we()],v.MyElement.prototype,"dt",2),fe([we()],v.MyElement.prototype,"timeArray",2),fe([we()],v.MyElement.prototype,"date",2),fe([we()],v.MyElement.prototype,"guests",2),v.MyElement=fe([Lr("my-element")],v.MyElement),Object.defineProperty(v,"__esModule",{value:!0}),v[Symbol.toStringTag]="Module"});
+    `}},v.MyElement.styles=Pt(Li),fe([we()],v.MyElement.prototype,"dt",2),fe([we()],v.MyElement.prototype,"time",2),fe([we()],v.MyElement.prototype,"timeArray",2),fe([we()],v.MyElement.prototype,"date",2),fe([we()],v.MyElement.prototype,"guests",2),v.MyElement=fe([Lr("my-element")],v.MyElement),Object.defineProperty(v,"__esModule",{value:!0}),v[Symbol.toStringTag]="Module"});

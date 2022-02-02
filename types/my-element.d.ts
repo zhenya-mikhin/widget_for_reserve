@@ -3,9 +3,9 @@ import { DateTime } from 'luxon';
 import './styles/index.scss';
 export declare class MyElement extends LitElement {
     static styles: import("lit").CSSResult;
-    time: string;
     dt: DateTime;
     dtFormat: string;
+    time: string;
     timeArray: string[];
     date: DateTime;
     guests: number;

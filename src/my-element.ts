@@ -10,11 +10,11 @@ export class MyElement extends LitElement {
   static styles = unsafeCSS(styles)
 
   @property()
-  time = ''
-
-  @property()
   dt = DateTime.now()
   dtFormat = this.dt.setLocale("en").toFormat("MMM dd, yyyy")
+
+  @property()
+  time = ''
 
   @property()
   timeArray = [] as string[];
@@ -33,8 +33,12 @@ export class MyElement extends LitElement {
 
     this.timeArray = initialTimeArray.map(el => {
       duration += 30
-      return el.plus({ minute: duration }).toFormat('HH:mm a')
+      return el.plus({ minute: duration }).toFormat('HH:mm')
     })
+
+    if ((this.date.day == this.dt.day) && (this.date.month == this.dt.month)) {
+      this.timeArray = this.timeArray.filter(el => el >= this.dt.toLocaleString(DateTime.TIME_SIMPLE))
+    }
   }
 
   private _getToday() {
@@ -73,6 +77,7 @@ export class MyElement extends LitElement {
   private _changeTime(evt: any) {
     const value = evt.currentTarget.value
     this.time = value
+    this._getToday()
   }
 
   private _getSoon(time: string) {
@@ -137,7 +142,6 @@ export class MyElement extends LitElement {
                   required>
             ${
               this.timeArray
-                    .filter(el => el >= this.dt.toLocaleString(DateTime.TIME_24_SIMPLE))
                     .map(i => html`<option value="${i}">${i}</option>`)
             }
           </select>

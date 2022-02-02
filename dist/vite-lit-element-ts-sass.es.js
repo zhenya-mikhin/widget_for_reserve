@@ -4399,7 +4399,7 @@ function friendlyDateTime(dateTimeish) {
   }
 }
 var index = r$1``;
-var styles = ":root {\n  --components-background-dark: #222222;\n  --components-background-light: #ffffff;\n  --components-background-default: var(--components-background-light);\n  --text-color-dark: #44413e;\n  --text-color-light: #fff;\n  --text-color-default: var(--text-color-dark);\n}\n\n:host .reserve-form {\n  gap: 20px;\n  min-width: 300px;\n  padding: 30px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  text-align: center;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__title {\n  margin: 0;\n  margin-bottom: 30px;\n  font-size: 20px;\n  font-weight: 500;\n  color: #44413e;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__title {\n    color: #fff;\n  }\n}\n\n:host .reserve-form__input-container {\n  position: relative;\n  width: calc(100% - 48px);\n  margin-bottom: 20px;\n  padding: 15px 20px;\n  border: solid 1px #ddd;\n  border-radius: 4px;\n  background-color: var(--components-background-default);\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 300;\n  text-align: left;\n  color: #44413e;\n  transition: border-color 0.2s;\n  cursor: pointer;\n}\n\n:host .reserve-form__input-container:hover {\n  border-color: #e16640;\n}\n\n:host .reserve-form__input-container--last-child {\n  margin-bottom: 50px;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__input-container {\n    background-color: #222222;\n    color: #fff;\n  }\n}\n\n:host .reserve-form__input {\n  cursor: pointer;\n}\n\n:host .reserve-form__input--select {\n  position: absolute;\n  top: 20px;\n  opacity: 0;\n  z-index: 1;\n  line-height: 50px;\n  padding: 12px 6px;\n  box-sizing: border-box;\n  height: 50px;\n  width: 100%;\n  margin-top: -25px;\n  margin-left: -20px;\n}\n\n:host .reserve-form__text {\n  font-size: 15px;\n  font-weight: 300;\n  color: #44413e;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__text {\n    background-color: #222222;\n    color: #fff;\n  }\n}\n\n:host .reserve-form__minus {\n  position: absolute;\n  top: 15px;\n  right: 70px;\n  z-index: 2;\n  border: none;\n  background-color: #ffffff;\n  cursor: pointer;\n}\n\n:host .reserve-form__minus:hover {\n  opacity: 0.7;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__minus {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__plus {\n  z-index: 2;\n  border: none;\n  background-color: var(--components-background-default);\n}\n\n:host .reserve-form__plus:hover {\n  opacity: 0.7;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__plus {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__plus, :host .reserve-form__drop {\n  position: absolute;\n  top: 15px;\n  right: 20px;\n  cursor: pointer;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__svg {\n    fill: #ddd;\n  }\n}\n\n:host .reserve-form__button {\n  width: 100%;\n  padding: 13px 0;\n  border: none;\n  border-radius: 4px;\n  background-color: #e16640;\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 500;\n  color: #fff;\n  text-transform: uppercase;\n  cursor: pointer;\n  transition: background-color 0.2s, opacity 0.2s;\n}\n\n:host .reserve-form__button:hover {\n  background-color: #d0613e;\n}\n\n:host .reserve-form__button:active {\n  opacity: 0.8;\n}";
+var styles = ":root {\n  --components-background-dark: #222222;\n  --components-background-light: #ffffff;\n  --components-background-default: var(--components-background-light);\n  --text-color-dark: #44413e;\n  --text-color-light: #fff;\n  --text-color-default: var(--text-color-dark);\n}\n\n:host .reserve-form {\n  display: flex;\n  flex-direction: column;\n  min-width: 300px;\n  padding: 30px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  text-align: center;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__title {\n  margin: 0;\n  margin-bottom: 30px;\n  font-size: 20px;\n  font-weight: 500;\n  color: #44413e;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__title {\n    color: #fff;\n  }\n}\n\n:host .reserve-form__input-container {\n  position: relative;\n  width: calc(100% - 42px);\n  margin-bottom: 20px;\n  padding: 15px 20px;\n  border: solid 1px #ddd;\n  border-radius: 4px;\n  background-color: var(--components-background-default);\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 300;\n  text-align: left;\n  color: #44413e;\n  transition: border-color 0.2s;\n  cursor: pointer;\n}\n\n:host .reserve-form__input-container:hover {\n  border-color: #e16640;\n}\n\n:host .reserve-form__input-container--last-child {\n  margin-bottom: 50px;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__input-container {\n    background-color: #222222;\n    color: #fff;\n  }\n}\n\n:host .reserve-form__input {\n  cursor: pointer;\n}\n\n:host .reserve-form__input--select {\n  position: absolute;\n  top: 20px;\n  opacity: 0;\n  z-index: 1;\n  line-height: 50px;\n  padding: 12px 6px;\n  box-sizing: border-box;\n  height: 50px;\n  width: 100%;\n  margin-top: -25px;\n  margin-left: -20px;\n}\n\n:host .reserve-form__text {\n  font-size: 15px;\n  font-weight: 300;\n  color: #44413e;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__text {\n    background-color: #222222;\n    color: #fff;\n  }\n}\n\n:host .reserve-form__minus {\n  position: absolute;\n  top: 15px;\n  right: 70px;\n  z-index: 2;\n  border: none;\n  background-color: #ffffff;\n  cursor: pointer;\n}\n\n:host .reserve-form__minus:hover {\n  opacity: 0.7;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__minus {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__plus {\n  z-index: 2;\n  border: none;\n  background-color: var(--components-background-default);\n}\n\n:host .reserve-form__plus:hover {\n  opacity: 0.7;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__plus {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__plus, :host .reserve-form__drop {\n  position: absolute;\n  top: 15px;\n  right: 20px;\n  cursor: pointer;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__svg {\n    fill: #ddd;\n  }\n}\n\n:host .reserve-form__button {\n  width: 100%;\n  padding: 13px 0;\n  border: none;\n  border-radius: 4px;\n  background-color: #e16640;\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 500;\n  color: #fff;\n  text-transform: uppercase;\n  cursor: pointer;\n  transition: background-color 0.2s, opacity 0.2s;\n}\n\n:host .reserve-form__button:hover {\n  background-color: #d0613e;\n}\n\n:host .reserve-form__button:active {\n  opacity: 0.8;\n}";
 var __defProp2 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __decorateClass = (decorators, target, key, kind) => {
@@ -4414,9 +4414,9 @@ var __decorateClass = (decorators, target, key, kind) => {
 let MyElement = class extends h {
   constructor() {
     super(...arguments);
-    this.time = "";
     this.dt = DateTime.now();
     this.dtFormat = this.dt.setLocale("en").toFormat("MMM dd, yyyy");
+    this.time = "";
     this.timeArray = [];
     this.date = this.dt;
     this.guests = 2;
@@ -4428,8 +4428,11 @@ let MyElement = class extends h {
     const initialTimeArray = new Array(28).fill(this.dt.set({ year: this.date.year, month: this.date.month, day: this.date.day, hour: 9, minute: 0 }));
     this.timeArray = initialTimeArray.map((el) => {
       duration += 30;
-      return el.plus({ minute: duration }).toFormat("HH:mm a");
+      return el.plus({ minute: duration }).toFormat("HH:mm");
     });
+    if (this.date.day == this.dt.day && this.date.month == this.dt.month) {
+      this.timeArray = this.timeArray.filter((el) => el >= this.dt.toLocaleString(DateTime.TIME_SIMPLE));
+    }
   }
   _getToday() {
     this._getTimeArray();
@@ -4461,6 +4464,7 @@ let MyElement = class extends h {
   _changeTime(evt) {
     const value = evt.currentTarget.value;
     this.time = value;
+    this._getToday();
   }
   _getSoon(time) {
     return time > this.timeArray[0] ? this.timeArray[1] : this.timeArray[0];
@@ -4514,7 +4518,7 @@ let MyElement = class extends h {
           <select @change="${this._changeTime}"
                   class="reserve-form__input reserve-form__input--select"
                   required>
-            ${this.timeArray.filter((el) => el >= this.dt.toLocaleString(DateTime.TIME_24_SIMPLE)).map((i2) => T`<option value="${i2}">${i2}</option>`)}
+            ${this.timeArray.map((i2) => T`<option value="${i2}">${i2}</option>`)}
           </select>
           <span class="reserve-form__text">${this.time || this._getSoon(this.dt.toLocaleString(DateTime.TIME_SIMPLE))}</span>
           <div class="reserve-form__drop">
@@ -4534,10 +4538,10 @@ let MyElement = class extends h {
 MyElement.styles = s$3(styles);
 __decorateClass([
   e()
-], MyElement.prototype, "time", 2);
+], MyElement.prototype, "dt", 2);
 __decorateClass([
   e()
-], MyElement.prototype, "dt", 2);
+], MyElement.prototype, "time", 2);
 __decorateClass([
   e()
 ], MyElement.prototype, "timeArray", 2);
