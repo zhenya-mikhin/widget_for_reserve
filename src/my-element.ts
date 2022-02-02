@@ -47,8 +47,8 @@ export class MyElement extends LitElement {
 
     const action = evt.currentTarget.dataset.action
 
-    if (this.guests < this.minAndMaxGuests.MIN) return
-    if (this.guests > this.minAndMaxGuests.MAX) return
+    if (this.guests <= this.minAndMaxGuests.MIN) return
+    if (this.guests >= this.minAndMaxGuests.MAX) return
     
     switch (action) {
       case 'minus':
@@ -115,12 +115,12 @@ export class MyElement extends LitElement {
           <span class="reserve-form__text">${this.guests} guests</span>
           <button class="reserve-form__minus" @click="${this._selectGuests}" data-action="minus">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.6 9.4h16.8a.6.6 0 0 1 0 1.2H1.6a.6.6 0 0 1 0-1.2z" fill="#000" fill-rule="evenodd" opacity=".5"/>
+              <path class="reserve-form__svg" d="M1.6 9.4h16.8a.6.6 0 0 1 0 1.2H1.6a.6.6 0 0 1 0-1.2z" fill="#000" fill-rule="evenodd" opacity=".5"/>
             </svg>
           </button>
           <button class="reserve-form__plus" @click="${this._selectGuests}" data-action="plus">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="m9.412 9.419-7.863.037a.552.552 0 0 0-.55.548.538.538 0 0 0 .545.544l7.945-.038-.037 7.946a.539.539 0 0 0 .544.544.552.552 0 0 0 .548-.549l.038-7.862 7.87-.039a.55.55 0 0 0 .548-.547.541.541 0 0 0-.544-.544l-7.952.038.037-7.953A.541.541 0 0 0 9.997 1a.55.55 0 0 0-.547.548l-.038 7.871z" fill="#000" fill-rule="evenodd" opacity=".5"/>
+              <path class="reserve-form__svg" d="m9.412 9.419-7.863.037a.552.552 0 0 0-.55.548.538.538 0 0 0 .545.544l7.945-.038-.037 7.946a.539.539 0 0 0 .544.544.552.552 0 0 0 .548-.549l.038-7.862 7.87-.039a.55.55 0 0 0 .548-.547.541.541 0 0 0-.544-.544l-7.952.038.037-7.953A.541.541 0 0 0 9.997 1a.55.55 0 0 0-.547.548l-.038 7.871z" fill="#000" fill-rule="evenodd" opacity=".5"/>
             </svg>
           </button>
         </section>
@@ -144,7 +144,7 @@ export class MyElement extends LitElement {
           <span class="reserve-form__text">${this.time || this._getSoon(this.dt.toLocaleString(DateTime.TIME_SIMPLE))}</span>
           <div class="reserve-form__drop">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="m14.297 7.5-4.304 4.13-.459-.44-3.82-3.667L5 8.207 9.993 13 15 8.195l-.703-.695z" fill="#000" fill-rule="evenodd" opacity=".5"/>
+              <path class="reserve-form__svg" d="m14.297 7.5-4.304 4.13-.459-.44-3.82-3.667L5 8.207 9.993 13 15 8.195l-.703-.695z" fill="#000" fill-rule="evenodd" opacity=".5"/>
             </svg>
           </div>
         </section>

@@ -8,8 +8,8 @@ $border-color: #ddd;
 $brand-color: #e16640;
 $brand-color-hover: #d0613e;
 
-$light-color: #fff;
-$dark-color: #44413e;
+$text-color-light: #fff;
+$text-color-dark: #44413e;
 
 :root {
   // components-background
@@ -18,7 +18,7 @@ $dark-color: #44413e;
   --components-background-default: var(#{--components-background-light});
 
   // text-color
-  --text-color-dark: #{$dark-color};
-  --text-color-light: #{$light-color};
+  --text-color-dark: #{$text-color-dark};
+  --text-color-light: #{$text-color-light};
   --text-color-default: var(#{--text-color-dark});
 }
