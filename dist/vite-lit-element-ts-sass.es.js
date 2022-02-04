@@ -4399,7 +4399,7 @@ function friendlyDateTime(dateTimeish) {
   }
 }
 var index = r$1``;
-var styles = ":root {\n  --components-background-dark: #222222;\n  --components-background-light: #ffffff;\n  --components-background-default: var(--components-background-light);\n  --text-color-dark: #44413e;\n  --text-color-light: #fff;\n  --text-color-default: var(--text-color-dark);\n}\n\n:host .reserve-form {\n  display: flex;\n  flex-direction: column;\n  min-width: 300px;\n  padding: 30px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  text-align: center;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__title {\n  margin: 0;\n  margin-bottom: 30px;\n  font-size: 20px;\n  font-weight: 500;\n  color: #44413e;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__title {\n    color: #fff;\n  }\n}\n\n:host .reserve-form__input-container {\n  position: relative;\n  width: calc(100% - 42px);\n  margin-bottom: 20px;\n  padding: 15px 20px;\n  border: solid 1px #ddd;\n  border-radius: 4px;\n  background-color: var(--components-background-default);\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 300;\n  text-align: left;\n  color: #44413e;\n  transition: border-color 0.2s;\n  cursor: pointer;\n}\n\n:host .reserve-form__input-container:hover {\n  border-color: #e16640;\n}\n\n:host .reserve-form__input-container--last-child {\n  margin-bottom: 50px;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__input-container {\n    background-color: #222222;\n    color: #fff;\n  }\n}\n\n:host .reserve-form__input {\n  cursor: pointer;\n}\n\n:host .reserve-form__input--select {\n  position: absolute;\n  top: 20px;\n  opacity: 0;\n  z-index: 1;\n  line-height: 50px;\n  padding: 12px 6px;\n  box-sizing: border-box;\n  height: 50px;\n  width: 100%;\n  margin-top: -25px;\n  margin-left: -20px;\n}\n\n:host .reserve-form__text {\n  font-size: 15px;\n  font-weight: 300;\n  color: #44413e;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__text {\n    background-color: #222222;\n    color: #fff;\n  }\n}\n\n:host .reserve-form__minus {\n  position: absolute;\n  top: 15px;\n  right: 70px;\n  z-index: 2;\n  border: none;\n  background-color: #ffffff;\n  cursor: pointer;\n}\n\n:host .reserve-form__minus:hover {\n  opacity: 0.7;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__minus {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__plus {\n  z-index: 2;\n  border: none;\n  background-color: var(--components-background-default);\n}\n\n:host .reserve-form__plus:hover {\n  opacity: 0.7;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__plus {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__plus, :host .reserve-form__drop {\n  position: absolute;\n  top: 15px;\n  right: 20px;\n  cursor: pointer;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__svg {\n    fill: #ddd;\n  }\n}\n\n:host .reserve-form__button {\n  width: 100%;\n  padding: 13px 0;\n  border: none;\n  border-radius: 4px;\n  background-color: #e16640;\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 500;\n  color: #fff;\n  text-transform: uppercase;\n  cursor: pointer;\n  transition: background-color 0.2s, opacity 0.2s;\n}\n\n:host .reserve-form__button:hover {\n  background-color: #d0613e;\n}\n\n:host .reserve-form__button:active {\n  opacity: 0.8;\n}";
+var styles = ":root {\n  --components-background-dark: #222222;\n  --components-background-light: #ffffff;\n  --components-background-default: var(--components-background-light);\n  --text-color-dark: #44413e;\n  --text-color-light: #fff;\n  --text-color-default: var(--text-color-dark);\n}\n\n:host .reserve-form {\n  display: flex;\n  flex-direction: column;\n  min-width: 300px;\n  padding: 30px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  text-align: center;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__title {\n  margin: 0;\n  margin-bottom: 30px;\n  font-size: 20px;\n  font-weight: 500;\n  color: #44413e;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__title {\n    color: #fff;\n  }\n}\n\n:host .reserve-form__input-container {\n  position: relative;\n  width: calc(100% - 42px);\n  margin-bottom: 20px;\n  padding: 15px 20px;\n  border: solid 1px #ddd;\n  border-radius: 4px;\n  background-color: var(--components-background-default);\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 300;\n  text-align: left;\n  color: #44413e;\n  transition: border-color 0.2s;\n  cursor: pointer;\n}\n\n:host .reserve-form__input-container:hover {\n  border-color: #e16640;\n}\n\n:host .reserve-form__input-container--last-child {\n  margin-bottom: 50px;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__input-container {\n    background-color: #222222;\n    color: #fff;\n  }\n}\n\n:host .reserve-form__input {\n  cursor: pointer;\n}\n\n:host .reserve-form__input--select {\n  position: absolute;\n  top: 20px;\n  opacity: 0;\n  z-index: 1;\n  line-height: 50px;\n  padding: 12px 6px;\n  box-sizing: border-box;\n  height: 50px;\n  width: 100%;\n  margin-top: -25px;\n  margin-left: -20px;\n}\n\n:host .reserve-form__text {\n  font-size: 15px;\n  font-weight: 300;\n  color: #44413e;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__text {\n    background-color: #222222;\n    color: #fff;\n  }\n}\n\n:host .reserve-form__minus {\n  position: absolute;\n  top: 15px;\n  right: 70px;\n  z-index: 2;\n  border: none;\n  background-color: #ffffff;\n  cursor: pointer;\n}\n\n:host .reserve-form__minus:hover {\n  opacity: 0.7;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__minus {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__plus {\n  z-index: 2;\n  border: none;\n  background-color: var(--components-background-default);\n}\n\n:host .reserve-form__plus:hover {\n  opacity: 0.7;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__plus {\n    background-color: #222222;\n  }\n}\n\n:host .reserve-form__plus, :host .reserve-form__drop {\n  position: absolute;\n  top: 15px;\n  right: 20px;\n  cursor: pointer;\n}\n\n@media (prefers-color-scheme: dark) {\n  :host .reserve-form__svg {\n    fill: #ddd;\n  }\n}\n\n:host .reserve-form__button {\n  width: 100%;\n  padding: 13px 0;\n  border: none;\n  border-radius: 4px;\n  background-color: #e16640;\n  font-family: inherit;\n  font-size: 15px;\n  font-weight: 500;\n  color: #fff;\n  text-transform: uppercase;\n  cursor: pointer;\n  transition: background-color 0.2s, opacity 0.2s;\n}\n\n:host .reserve-form__button:hover {\n  background-color: #d0613e;\n}\n\n:host .reserve-form__button:active {\n  opacity: 0.8;\n}\n\n:host .visually-hidden {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  margin: -1px;\n  padding: 0;\n  overflow: hidden;\n  border: 0;\n  clip: rect(0 0 0 0);\n}";
 var __defProp2 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __decorateClass = (decorators, target, key, kind) => {
@@ -4441,14 +4441,14 @@ let MyElement = class extends h {
   _selectGuests(evt) {
     evt.preventDefault();
     const action = evt.currentTarget.dataset.action;
-    if (this.guests <= this.minAndMaxGuests.MIN)
-      return;
-    if (this.guests >= this.minAndMaxGuests.MAX)
-      return;
     switch (action) {
       case "minus":
+        if (this.guests <= this.minAndMaxGuests.MIN)
+          return;
         return this.guests--;
       case "plus":
+        if (this.guests >= this.minAndMaxGuests.MAX)
+          return;
         return this.guests++;
     }
     return;
@@ -4496,18 +4496,19 @@ let MyElement = class extends h {
             ${this.guestsArray.map((i2) => T`<option value="${i2 + 1}">${i2 + 1} guests</option>`)}
           </select>
           <span class="reserve-form__text">${this.guests} guests</span>
-          <button class="reserve-form__minus" @click="${this._selectGuests}" data-action="minus">
+          <button class="reserve-form__minus" @click="${this._selectGuests}" data-action="minus" aria-label="reduce the number of guests">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path class="reserve-form__svg" d="M1.6 9.4h16.8a.6.6 0 0 1 0 1.2H1.6a.6.6 0 0 1 0-1.2z" fill="#000" fill-rule="evenodd" opacity=".5"/>
             </svg>
           </button>
-          <button class="reserve-form__plus" @click="${this._selectGuests}" data-action="plus">
+          <button class="reserve-form__plus" @click="${this._selectGuests}" data-action="plus" aria-label="increase the number of guests">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path class="reserve-form__svg" d="m9.412 9.419-7.863.037a.552.552 0 0 0-.55.548.538.538 0 0 0 .545.544l7.945-.038-.037 7.946a.539.539 0 0 0 .544.544.552.552 0 0 0 .548-.549l.038-7.862 7.87-.039a.55.55 0 0 0 .548-.547.541.541 0 0 0-.544-.544l-7.952.038.037-7.953A.541.541 0 0 0 9.997 1a.55.55 0 0 0-.547.548l-.038 7.871z" fill="#000" fill-rule="evenodd" opacity=".5"/>
             </svg>
           </button>
         </section>
 
+        <label for="date-input" class="visually-hidden">date selection</label>
         <input class="reserve-form__input-container"
                  type="date" min="${this._getToday()}"
                  value="${this._getToday()}"

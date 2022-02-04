@@ -195,7 +195,18 @@ var qi=Object.defineProperty,Yi=Object.defineProperties;var Gi=Object.getOwnProp
 
 :host .reserve-form__button:active {
   opacity: 0.8;
-}`,Ui=Object.defineProperty,zi=Object.getOwnPropertyDescriptor,fe=(n,e,t,r)=>{for(var s=r>1?void 0:r?zi(e,t):e,i=n.length-1,o;i>=0;i--)(o=n[i])&&(s=(r?o(e,t,s):o(s))||s);return r&&s&&Ui(e,t,s),s};v.MyElement=class extends ve{constructor(){super(...arguments);this.dt=m.now(),this.dtFormat=this.dt.setLocale("en").toFormat("MMM dd, yyyy"),this.time="",this.timeArray=[],this.date=this.dt,this.guests=2,this.minAndMaxGuests={MIN:1,MAX:100},this.guestsArray=Array.from(Array(100).keys())}_getTimeArray(){let n=30;const e=new Array(28).fill(this.dt.set({year:this.date.year,month:this.date.month,day:this.date.day,hour:9,minute:0}));this.timeArray=e.map(t=>(n+=30,t.plus({minute:n}).toFormat("HH:mm"))),this.date.day==this.dt.day&&this.date.month==this.dt.month&&(this.timeArray=this.timeArray.filter(t=>t>=this.dt.toLocaleString(m.TIME_SIMPLE)))}_getToday(){return this._getTimeArray(),this.dt.toLocaleString().split(".").reverse().join("-")}_selectGuests(n){n.preventDefault();const e=n.currentTarget.dataset.action;if(!(this.guests<=this.minAndMaxGuests.MIN)&&!(this.guests>=this.minAndMaxGuests.MAX))switch(e){case"minus":return this.guests--;case"plus":return this.guests++}}_changeSelect(n){const e=n.currentTarget.value;this.guests=e}_changeDate(n){this.date=m.fromISO(n.currentTarget.value),this._getTimeArray()}_changeTime(n){const e=n.currentTarget.value;this.time=e,this._getToday()}_getSoon(n){return n>this.timeArray[0]?this.timeArray[1]:this.timeArray[0]}_fetchData(n){n.preventDefault();let e="https://hostme-webguest-qa.azurewebsites.net/reserve/3097/?";const t={person:this.guests,date:m.fromISO(this.date.toISO()).toFormat("LL/dd/y"),time:this.time.slice(0,5)+":00",dateFormat:"MM/DD/YYYY",lang:"en"};for(let r in t)e=e+`${r}=${t[r]}&`;window.location.href=e}render(){return Je`
+}
+
+:host .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}`,Ui=Object.defineProperty,zi=Object.getOwnPropertyDescriptor,fe=(n,e,t,r)=>{for(var s=r>1?void 0:r?zi(e,t):e,i=n.length-1,o;i>=0;i--)(o=n[i])&&(s=(r?o(e,t,s):o(s))||s);return r&&s&&Ui(e,t,s),s};v.MyElement=class extends ve{constructor(){super(...arguments);this.dt=m.now(),this.dtFormat=this.dt.setLocale("en").toFormat("MMM dd, yyyy"),this.time="",this.timeArray=[],this.date=this.dt,this.guests=2,this.minAndMaxGuests={MIN:1,MAX:100},this.guestsArray=Array.from(Array(100).keys())}_getTimeArray(){let n=30;const e=new Array(28).fill(this.dt.set({year:this.date.year,month:this.date.month,day:this.date.day,hour:9,minute:0}));this.timeArray=e.map(t=>(n+=30,t.plus({minute:n}).toFormat("HH:mm"))),this.date.day==this.dt.day&&this.date.month==this.dt.month&&(this.timeArray=this.timeArray.filter(t=>t>=this.dt.toLocaleString(m.TIME_SIMPLE)))}_getToday(){return this._getTimeArray(),this.dt.toLocaleString().split(".").reverse().join("-")}_selectGuests(n){switch(n.preventDefault(),n.currentTarget.dataset.action){case"minus":return this.guests<=this.minAndMaxGuests.MIN?void 0:this.guests--;case"plus":return this.guests>=this.minAndMaxGuests.MAX?void 0:this.guests++}}_changeSelect(n){const e=n.currentTarget.value;this.guests=e}_changeDate(n){this.date=m.fromISO(n.currentTarget.value),this._getTimeArray()}_changeTime(n){const e=n.currentTarget.value;this.time=e,this._getToday()}_getSoon(n){return n>this.timeArray[0]?this.timeArray[1]:this.timeArray[0]}_fetchData(n){n.preventDefault();let e="https://hostme-webguest-qa.azurewebsites.net/reserve/3097/?";const t={person:this.guests,date:m.fromISO(this.date.toISO()).toFormat("LL/dd/y"),time:this.time.slice(0,5)+":00",dateFormat:"MM/DD/YYYY",lang:"en"};for(let r in t)e=e+`${r}=${t[r]}&`;window.location.href=e}render(){return Je`
       <form class="reserve-form">
         <h2 class="reserve-form__title">Make a reservation</h2>
 
@@ -206,18 +217,19 @@ var qi=Object.defineProperty,Yi=Object.defineProperties;var Gi=Object.getOwnProp
             ${this.guestsArray.map(n=>Je`<option value="${n+1}">${n+1} guests</option>`)}
           </select>
           <span class="reserve-form__text">${this.guests} guests</span>
-          <button class="reserve-form__minus" @click="${this._selectGuests}" data-action="minus">
+          <button class="reserve-form__minus" @click="${this._selectGuests}" data-action="minus" aria-label="reduce the number of guests">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path class="reserve-form__svg" d="M1.6 9.4h16.8a.6.6 0 0 1 0 1.2H1.6a.6.6 0 0 1 0-1.2z" fill="#000" fill-rule="evenodd" opacity=".5"/>
             </svg>
           </button>
-          <button class="reserve-form__plus" @click="${this._selectGuests}" data-action="plus">
+          <button class="reserve-form__plus" @click="${this._selectGuests}" data-action="plus" aria-label="increase the number of guests">
             <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path class="reserve-form__svg" d="m9.412 9.419-7.863.037a.552.552 0 0 0-.55.548.538.538 0 0 0 .545.544l7.945-.038-.037 7.946a.539.539 0 0 0 .544.544.552.552 0 0 0 .548-.549l.038-7.862 7.87-.039a.55.55 0 0 0 .548-.547.541.541 0 0 0-.544-.544l-7.952.038.037-7.953A.541.541 0 0 0 9.997 1a.55.55 0 0 0-.547.548l-.038 7.871z" fill="#000" fill-rule="evenodd" opacity=".5"/>
             </svg>
           </button>
         </section>
 
+        <label for="date-input" class="visually-hidden">date selection</label>
         <input class="reserve-form__input-container"
                  type="date" min="${this._getToday()}"
                  value="${this._getToday()}"
