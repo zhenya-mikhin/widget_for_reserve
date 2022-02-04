@@ -230,7 +230,7 @@ var qi=Object.defineProperty,Yi=Object.defineProperties;var Gi=Object.getOwnProp
         </section>
 
         <label for="date-input" class="visually-hidden">date selection</label>
-        <input class="reserve-form__input-container"
+        <input id=""date-input class="reserve-form__input-container"
                  type="date" min="${this._getToday()}"
                  value="${this._getToday()}"
                  @change="${this._changeDate}"
